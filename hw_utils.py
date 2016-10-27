@@ -158,7 +158,7 @@ def testmodels(X_tr, y_tr, X_te, y_te, archs, actfn='relu', last_act='softmax', 
             # sgd_mom, actfn, score[1]))
             end_time = time.time()
             diff = end_time - start_time
-            print ('Time taken for arch = ', str(arch), 'is', diff )
+            print 'Time taken for arch = ', arch, 'is', diff 
             # print('Best Config: architecture = {0}, lambda = {1}, decay = {2}, momentum = {3}, ' +
             # 'actfn = {4}, best_acc = {5}'.format(best_config[0], best_config[1], best_config[2],
             # best_config[3], best_config[4], best_config[5]))

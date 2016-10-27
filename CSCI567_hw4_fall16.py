@@ -32,7 +32,7 @@ architecture, regulariztn, decay, momentum, accuracy = \
 # (e) Sigmoid activation:-----------------------------------------------------------------------------------------
 print('\nSigmoid activations with architecture: ' + str(achitecture_2))
 architecture, regulariztn, decay, momentum, accuracy = \
-    testmodels(norm_x_train, y_train, norm_x_test, y_test, achitecture_1, actfn='sigmoid', last_act='softmax',
+    testmodels(norm_x_train, y_train, norm_x_test, y_test, achitecture_2, actfn='sigmoid', last_act='softmax',
                reg_coeffs=[0.0], num_epoch=30, batch_size=1000, sgd_lr=0.001, sgd_decays=[0.0], sgd_moms=[0.0],
                sgd_Nesterov=False, EStop=False, verbose=0)
 
@@ -61,8 +61,7 @@ print('\nEarly Stopping with architecture: ' + str(reg_arch) + ' ' + str(regular
 architecture, op_regulariztn, decay, momentum, accuracy = \
     testmodels(norm_x_train, y_train, norm_x_test, y_test, reg_arch, actfn='relu', last_act='softmax',
                reg_coeffs=regularization, num_epoch=30, batch_size=1000, sgd_lr=0.0005, sgd_decays=[0.0],
-               sgd_moms=[0.0],
-               sgd_Nesterov=False, EStop=True, verbose=0)
+               sgd_moms=[0.0], sgd_Nesterov=False, EStop=True, verbose=0)
 
 print 'Best value of regularization parameter: ', op_regulariztn, ' with accuracy: ', accuracy
 
