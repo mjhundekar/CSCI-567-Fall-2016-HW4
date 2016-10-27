@@ -7,7 +7,7 @@ Created on Sat Oct 22 18:17:40 2016
 from hw_utils import *
 import os
 
-os.system("taskset -p 0xff %d" % os.getpid())
+os.system("taskset -p 0xffff %d" % os.getpid())
 
 x_train, y_train, x_test, y_test = loaddata('MiniBooNE_PID.txt');
 norm_x_train, norm_x_test = normalize(x_train, x_test);
