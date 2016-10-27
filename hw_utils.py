@@ -15,7 +15,7 @@ from keras.callbacks import EarlyStopping
 from keras.utils.np_utils import to_categorical
 import os
 
-os.system("taskset -p 0xff %d" % os.getpid())
+os.system("taskset -p 0xffff %d" % os.getpid())
 
 
 def genmodel(num_units, actfn='relu', reg_coeff=0.0, last_act='softmax'):

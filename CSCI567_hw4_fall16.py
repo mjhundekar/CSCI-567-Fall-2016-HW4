@@ -20,13 +20,13 @@ achitecture_2 = [[50, 50, 2], [50, 500, 2], [50, 500, 300, 2], [50, 800, 500, 30
 print('\nLinear activations with architecture: ' + str(achitecture_1))
 architecture, regulariztn, decay, momentum, accuracy = \
     testmodels(norm_x_train, y_train, norm_x_test, y_test, achitecture_1, actfn='linear', last_act='softmax',
-               reg_coeffs=[0.0], num_epoch=30, batch_size=1000, sgd_lr=1e-5, sgd_decays=[0.0], sgd_moms=[0.0],
+               reg_coeffs=[0.0], num_epoch=30, batch_size=1000, sgd_lr=0.001, sgd_decays=[0.0], sgd_moms=[0.0],
                sgd_Nesterov=False, EStop=False, verbose=0)
 
 print('\nLinear activations with architecture: ' + str(achitecture_2))
 architecture, regulariztn, decay, momentum, accuracy = \
     testmodels(norm_x_train, y_train, norm_x_test, y_test, achitecture_2, actfn='linear', last_act='softmax',
-               reg_coeffs=[0.0], num_epoch=30, batch_size=1000, sgd_lr=1e-5, sgd_decays=[0.0], sgd_moms=[0.0],
+               reg_coeffs=[0.0], num_epoch=30, batch_size=1000, sgd_lr=0.001, sgd_decays=[0.0], sgd_moms=[0.0],
                sgd_Nesterov=False, EStop=False, verbose=0)
 
 # (e) Sigmoid activation:-----------------------------------------------------------------------------------------
