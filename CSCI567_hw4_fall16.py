@@ -68,6 +68,7 @@ print 'Best value of regularization parameter: ', op_regulariztn, ' with accurac
 # (i) SGD with weight decay:
 weight_decay = [pow(10, -5), 5 * pow(10, -5), pow(10, -4), 3 * pow(10, -4), 7 * pow(10, -4), pow(10, -3)]
 i_arch = [[50, 800, 500, 300, 2]]
+print('\nSGD with weight decay, with architecture: ' + str(i_arch) + ' ' + str(weight_decay))
 architecture, regulariztn, op_decay, momentum, accuracy = \
     testmodels(norm_x_train, y_train, norm_x_test, y_test, i_arch, actfn='relu', last_act='softmax',
                reg_coeffs=[5 * pow(10, -7)], num_epoch=100, batch_size=1000, sgd_lr=0.00001, sgd_decays=weight_decay,
@@ -76,25 +77,26 @@ architecture, regulariztn, op_decay, momentum, accuracy = \
 print 'Best value of decay parameter: ', op_decay, ' with accuracy: ', accuracy
 
 # (j) Momentum:-----------------------------------------------------------------
-
+j_mom = [0.99, 0.98, 0.95, 0.9, 0.85];
+print('\nMomentum: ' + str(j_mom))
 architecture, regulariztn, decay, op_momentum, accuracy = \
     testmodels(norm_x_train, y_train, norm_x_test, y_test, i_arch, actfn='relu', last_act='softmax',
                reg_coeffs=[0.0], num_epoch=50, batch_size=1000, sgd_lr=0.00001, sgd_decays=[op_decay],
-               sgd_moms=[0.99, 0.98, 0.95, 0.9, 0.85], sgd_Nesterov=True, EStop=False, verbose=0)
+               sgd_moms=j_mom, sgd_Nesterov=True, EStop=False, verbose=0)
 
 print ('Best value of momentum coefficient: ', op_momentum, ' with accuracy: ', accuracy)
 
-# ---------------Part k-----------------
-
+# (k) Combining the above----------------
+print('\nCombining the above')
 architecture, regulariztn, optimal_decay, optimal_momentum, accuracy = \
     testmodels(norm_x_train, y_train, norm_x_test, y_test, i_arch, actfn='relu', last_act='softmax',
                reg_coeffs=[op_regulariztn], num_epoch=100, batch_size=1000, sgd_lr=0.00001,
                sgd_decays=[op_decay], sgd_moms=[op_momentum], sgd_Nesterov=True, EStop=True, verbose=0)
 
-# -------------Part l-------------------
+# Grid search with cross-validation:-------------------
 
 decay_list = [pow(10, -5), 5 * pow(10, -5), pow(10, -4)]
-
+print('\nGrid search with cross-validation:')
 architecture, op_regulariztn, op_decay, op_momentum, accuracy = \
     testmodels(norm_x_train, y_train, norm_x_test, y_test, achitecture_2, actfn='relu', last_act='softmax',
                reg_coeffs=regularization, num_epoch=100, batch_size=1000, sgd_lr=0.00001, sgd_decays=decay_list,
