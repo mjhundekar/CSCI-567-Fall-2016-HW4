@@ -16,7 +16,7 @@ from keras.utils.np_utils import to_categorical
 import time
 import os
 
-os.system("taskset -p 0xffff %d" % os.getpid())
+os.system("taskset -p 0xfffff %d" % os.getpid())
 
 
 def genmodel(num_units, actfn='relu', reg_coeff=0.0, last_act='softmax'):
