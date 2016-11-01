@@ -37,9 +37,9 @@ architecture, regulariztn, decay, momentum, accuracy = \
                sgd_Nesterov=False, EStop=False, verbose=0)
 
 # (f) ReLu activation:-------------------------------------------------------------------------------------------
-print('\nReLu activations with architecture: ' + str(achitecture_1))
+print('\nReLu activations with architecture: ' + str(achitecture_2))
 architecture, regulariztn, decay, momentum, accuracy = \
-    testmodels(norm_x_train, y_train, norm_x_test, y_test, achitecture_1, actfn='relu', last_act='softmax',
+    testmodels(norm_x_train, y_train, norm_x_test, y_test, achitecture_2, actfn='relu', last_act='softmax',
                reg_coeffs=[0.0], num_epoch=30, batch_size=1000, sgd_lr=0.0005, sgd_decays=[0.0], sgd_moms=[0.0],
                sgd_Nesterov=False, EStop=False, verbose=0)
 
